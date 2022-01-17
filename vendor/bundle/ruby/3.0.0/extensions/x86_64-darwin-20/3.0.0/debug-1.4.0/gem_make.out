@@ -1,0 +1,16 @@
+current directory: /Users/sarathk/blog/vendor/bundle/ruby/3.0.0/gems/debug-1.4.0/ext/debug
+/usr/local/var/rbenv/versions/3.0.3/bin/ruby -I /usr/local/var/rbenv/versions/3.0.3/lib/ruby/3.0.0 -r ./siteconf20220117-7184-zyq7af.rb extconf.rb
+creating Makefile
+
+current directory: /Users/sarathk/blog/vendor/bundle/ruby/3.0.0/gems/debug-1.4.0/ext/debug
+make DESTDIR\= clean
+
+current directory: /Users/sarathk/blog/vendor/bundle/ruby/3.0.0/gems/debug-1.4.0/ext/debug
+make DESTDIR\=
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.bundle
+
+current directory: /Users/sarathk/blog/vendor/bundle/ruby/3.0.0/gems/debug-1.4.0/ext/debug
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 debug.bundle ./.gem.20220117-7184-f9n3r4/debug
