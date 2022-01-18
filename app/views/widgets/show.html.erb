@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @widget %>
+
+<div>
+  <%= link_to "Edit this widget", edit_widget_path(@widget) %> |
+  <%= link_to "Back to widgets", widgets_path %>
+
+  <%= button_to "Destroy this widget", @widget, method: :delete %>
+</div>
