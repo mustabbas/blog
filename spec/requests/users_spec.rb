@@ -12,9 +12,9 @@ RSpec.describe 'users', type: :request do
       expect(response).to render_template(:index)
     end
 
-    it 'works! reponse body includes <h1>Users#index<h1> ' do
+    it 'works! reponse body includes Here the list of users ' do
       get users_path
-      expect(response.body).to include('<h1>Users#index<h1>')
+      expect(response.body).to include 'Here the list of users'
     end
   end
 
@@ -29,9 +29,9 @@ RSpec.describe 'users', type: :request do
       expect(response).to render_template(:show)
     end
 
-    it 'works! reponse body includes <h1>Users#index</h1>' do
+    it 'works! reponse body includes Here show user for given user' do
       get user_path(1)
-      expect(response.body).to include('<h1>Users#index</h1>')
+      expect(response.body).to include 'Here show user for given user'
     end
   end
 end

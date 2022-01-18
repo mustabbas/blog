@@ -12,9 +12,9 @@ RSpec.describe 'posts', type: :request do
       expect(response).to render_template(:index)
     end
 
-    it 'works! reponse body includes <h1>Posts#index<h1>' do
+    it 'works! reponse body includes Here is a list of posts for a given user' do
       get user_posts_path(user_id: 1)
-      expect(response.body).to include('<h1>Posts#index<h1>')
+      expect(response.body).to include 'Here is a list of posts for a given user'
     end
   end
 
@@ -29,9 +29,9 @@ RSpec.describe 'posts', type: :request do
       expect(response).to render_template(:show)
     end
 
-    it 'works! reponse body includes <h1>Posts#index</h1> ' do
+    it 'works! reponse body includes Here show post for a given use ' do
       get user_post_path(1, id: 1)
-      expect(response.body).to include('<h1>Posts#index</h1>')
+      expect(response.body).to include 'Here show post for a given use'
     end
   end
 end
