@@ -1,24 +1,37 @@
-# README
+# blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project for build blog using Ruby on Rails.
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+-  Ruby on Rails
 
-* System dependencies
+## Getting Started
 
-* Configuration
+Download the ZIP from this [Link](https://github.com/mustabbas/blog), or run the following git command to clone the files to your machine:
+git clone https://github.com/mustabbas/blog.git
+Open the cloned folder on the IDE of your choice;
+Install the required dependecies with bundle install
+Use rails s to run the program
 
-* Database creation
+## Authors
 
-* Database initialization
+👤 **MUSTAFA ABBAS**
 
-* How to run the test suite
+- GitHub: [@githubhandle](https://github.com/mustabbas)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mustabbas/)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 🤝 Contributing
 
-* ...
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/mustabbas/blog/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
