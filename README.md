@@ -5,14 +5,21 @@ This project for build blog using Ruby on Rails.
 ## Built With
 
 -  Ruby on Rails
+-  PostgreSQL
 
 ## Getting Started
 
 Download the ZIP from this [Link](https://github.com/mustabbas/blog), or run the following git command to clone the files to your machine:
-git clone https://github.com/mustabbas/blog.git
-Open the cloned folder on the IDE of your choice;
-Install the required dependecies with bundle install
-Use rails s to run the program
+
+- git clone https://github.com/mustabbas/blog.git
+- Open the cloned folder on the IDE of your choice
+- Install the required dependecies with bundle install
+- Use rails s to run the program
+
+## Tests
+
+- To run the tests you must first have run bundle install
+- Then in the repository's main directory run bundle exec rspec spec
 
 ## Authors
 
