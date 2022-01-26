@@ -1,6 +1,4 @@
 
-<h1>Here is a list of posts for a given user</h1>
-
   <div class="container">
       <div class="row">
           <div class="col-3 border my-3 p-3">
@@ -22,7 +20,7 @@
       <% @posts.each do |post| %>
       <div class="row mt-3">
          <div class="col-12 border ">
-              <h1><%= post.title %></h1>
+              <h1><%= link_to post.title, posts_show_path(post.author_id,post.id)  %></h1>
             <p><%= post.text %></p>
             <div class ="d-flex flex-row-reverse">
             <p class="text-end p-2">likes: <%= post.likes_counter %></p>
@@ -30,5 +28,19 @@
           </div>
       </div>
       <% end %>
+      <% @posts.each do |post| %>
+            <% post.commit.each do |commit| %>
+            <%if commit.user%>
+              <li class ="m-5">
+                <span><%= commit.user.name %>: <%= commit.text %></span>
+              </li>
+            <% end %>
+            <% end %>
+      <% end %>
+      <div class="row d-flex justify-content-center mt-5">
+         <div class="col-3">
+              <button  type="button" class="btn btn-dark"><%= link_to 'pagination' %></button>
+          </div>
+      </div>
   </div>
 

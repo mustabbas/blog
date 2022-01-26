@@ -1,6 +1,4 @@
-
-<h1>Here show post for a given use</h1>
-
+    <div class = "container">
       <div class="row mt-3">
          <div class="col-12 border ">
               <div class ="d-flex justify-content-between">
@@ -15,7 +13,10 @@
       <% @commit.each do |commit| %>
       <div class="row mt-3">
           <div class="col-12">
-              <p><%= commit.author_id %>: <%= commit.text %></p>
+                <%if commit.user%>
+              <p><%=  commit.user.name %>: <%= commit.text %></p>
+              <%end%>
           </div>
       </div>
       <% end %>
+    </div>
