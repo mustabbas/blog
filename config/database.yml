@@ -58,9 +58,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: blog_test
+  database: blog_development
   url: postgres://mhlsqlferyesvl:9d2ceab58eb9ca68bda1e5b0126369e3a0bc9ac6fa7c54f084bed8e2d75ff29e@ec2-3-232-22-121.compute-1.amazonaws.com:5432/da90vl582e99er
-
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
