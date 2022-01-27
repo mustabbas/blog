@@ -1,2 +1,22 @@
-
-<h1>Here show post for a given use</h1>
+    <div class = "container">
+      <div class="row mt-3">
+         <div class="col-12 border ">
+              <div class ="d-flex justify-content-between">
+               <h1><%= @post.title %> by <%= @post.title %></h1>
+            <div class ="d-flex flex-row-reverse">
+                <p class="text-end p-2">likes: <%= @post.likes_counter %></p>
+                <p class="text-end p-2">comments: <%= @post.comments_counter %></p>
+            </div>
+          </div>
+            <p><%= @post.text %></p>
+      </div>
+      <% @commit.each do |commit| %>
+      <div class="row mt-3">
+          <div class="col-12">
+                <%if commit.user%>
+              <p><%=  commit.user.name %>: <%= commit.text %></p>
+              <%end%>
+          </div>
+      </div>
+      <% end %>
+    </div>
