@@ -1,5 +1,6 @@
 
   <div class="container">
+    <%= flash[:success] %>
       <div class="row">
           <div class="col-3 border my-3 p-3">
               
@@ -20,23 +21,26 @@
       <% @posts.each do |post| %>
       <div class="row mt-3">
          <div class="col-12 border ">
-              <h1><%= link_to post.title, posts_show_path(post.author_id,post.id)  %></h1>
+              <h1><%= link_to post.title, posts_show_path(post.user_id,post.id)  %></h1>
             <p><%= post.text %></p>
             <div class ="d-flex flex-row-reverse">
             <p class="text-end p-2">likes: <%= post.likes_counter %></p>
             <p class="text-end p-2">comments: <%= post.comments_counter %></p>
+            <div class ="p-2"> <%= link_to 'New Comment', new_comment_path(@user.id,post.id) %></div>
+             <div class ="p-2"><%= link_to 'Add Like', create_like_path(@user.id,post.id) %></div>
           </div>
       </div>
       <% end %>
       <% @posts.each do |post| %>
-            <% post.commit.each do |commit| %>
-            <%if commit.user%>
+            <% post.comments.each do |comment| %>
+            <%if comment.user%>
               <li class ="m-5">
-                <span><%= commit.user.name %>: <%= commit.text %></span>
+                <span><%= comment.user.name %>: <%= comment.text %></span>
               </li>
             <% end %>
             <% end %>
       <% end %>
+      <%= link_to 'New Post', new_posts_path(@user.id) %>
       <div class="row d-flex justify-content-center mt-5">
          <div class="col-3">
               <button  type="button" class="btn btn-dark"><%= link_to 'pagination' %></button>

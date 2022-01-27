@@ -20,7 +20,7 @@
       <% @posts.each do |post| %>
       <div class="row mt-3">
          <div class="col-12 border ">
-              <h1><%= link_to post.title, posts_show_path(post.author_id,post.id) %></h1>
+              <h1><%= link_to post.title, posts_show_path(post.user_id,post.id) %></h1>
             <p><%= post.text %></p>
             <div class ="d-flex flex-row-reverse">
             <p class="text-end p-2">likes: <%= post.likes_counter %></p>
