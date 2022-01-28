@@ -4,10 +4,9 @@ class LikesController < ApplicationController
     if like.save
       Like.update_likes_counter(params[:id])
       flash[:success] = 'Like add successfully'
-      redirect_to all_posts_path(params[:user_id])
     else
       flash.now[:error] = 'Error: Like not be added'
-      redirect_to all_posts_path(params[:user_id])
     end
+    redirect_to all_posts_path(params[:user_id])
   end
 end
