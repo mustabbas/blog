@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html do
         if comment.save
+          Comment.update_comments_counter(params[:id])
           flash[:success] = 'Comment saved successfully'
           redirect_to all_posts_path(params[:user_id])
         else

@@ -1,10 +1,17 @@
 class Post < ApplicationRecord
+  validates :title, presence: true
+  validates :title, length: { maximum: 250 }
+  validates :comments_counter, comparison: { greater_than_or_equal_to: 0 }
+  validates :likes_counter, comparison: { greater_than_or_equal_to: 0 }
+
   belongs_to :user
   has_many :comments
   has_many :likes
-  def update_posts_count(user_id)
-    user = find_by(user_id)
-    user.update(posts_counter: posts_counter + 1)
+
+  def self.update_posts_counter(author_id)
+    u = User.find(author_id)
+    u.posts_counter += 1
+    u.save
   end
 
   def recent_comments(post_id)
