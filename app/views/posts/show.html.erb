@@ -10,6 +10,9 @@
           </div>
             <p><%= @post.text %></p>
       </div>
+      <div class ="text-end m-2 p-2">
+        <%= button_to  'Delete Post', destroy_post_path(user_id: 5,post_id: 10), method: :delete, class: "btn btn-primary"%>
+      </div>
       <% @comments.each do |comment| %>
       <div class="row mt-3">
           <div class="col-12">
@@ -19,4 +22,5 @@
           </div>
       </div>
       <% end %>
+
     </div>

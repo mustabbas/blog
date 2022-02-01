@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html do
         if post.save
-          Post.update_posts_counter(arams[:user_id])
+          Post.update_posts_counter(params[:user_id])
           flash[:success] = 'post saved successfully'
           redirect_to all_posts_path(params[:user_id])
         else
@@ -33,5 +33,11 @@ class PostsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+   Post.find(params[:id]).destroy
+    redirect_to all_posts_path(params[:user_id])
+    flash[:alert] = 'Your post was successfully deleted!'
   end
 end
