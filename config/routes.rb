@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete '/users/:user_id/post/:id/destroy', to: 'posts#destroy', as: "destroy_post"
   get '/users/:user_id/post/:id/comments/new', to: "comments#new", as: "new_comment"
   post '/users/:user_id/post/:id/comments/create', to: 'comments#create', as: "create_comment"
+  delete '/users/:user_id/post/:post_id/comments/:id/destroy', to: 'comments#destroy', as: "destroy_comment"
   get '/users/:user_id/post/:id/likes', to: 'likes#create', as: "create_like"
   # Defines the root path route ("/")
   # root "articles#index"

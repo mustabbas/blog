@@ -23,6 +23,13 @@
               <%end%>
           </div>
       </div>
-      <% end %>
 
+      <div class ="text-end m-2 p-2">
+      <% if can? :manage, comment %>
+           <%= button_to  'Delete Comment', destroy_comment_path(user_id: @post.user.id,post_id: @post.id, id: comment.id), method: :delete, class: "btn btn-primary"%>
+      <% end %>
+      </div>
+      
+      <% end %>
+    
     </div>
