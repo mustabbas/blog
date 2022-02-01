@@ -25,6 +25,7 @@ class CommentsController < ApplicationController
       end
     end
   end
+
   def destroy
     Comment.find(params[:id]).destroy
     puts params[:post_id]
