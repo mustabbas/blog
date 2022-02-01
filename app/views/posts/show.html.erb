@@ -11,7 +11,9 @@
             <p><%= @post.text %></p>
       </div>
       <div class ="text-end m-2 p-2">
-        <%= button_to  'Delete Post', destroy_post_path(user_id: 5,post_id: 10), method: :delete, class: "btn btn-primary"%>
+      <% if can? :manage, @post %>
+           <%= button_to  'Delete Post', destroy_post_path(user_id: @post.user.id, id: @post.id), method: :delete, class: "btn btn-primary"%>
+      <% end %>
       </div>
       <% @comments.each do |comment| %>
       <div class="row mt-3">
