@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 def create_test_users
   before(:each) do
@@ -45,13 +45,13 @@ RSpec.describe 'User index page', type: :system do
 
   describe 'can see the number of posts each user has written' do
     create_test_users
-    it 'can see that first users posts are 1' do    
-      visit users_path
-      expect(User.find_by(email: 'abbas@gmail.com').posts_counter).to eq 1
+    it 'can see that first users posts are 3' do    
+      visit user_path
+      expect(User.find_by(email: 'abbas@gmail.com').posts_counter).to eq 3
     end
 
     it 'can see that second users posts are 0' do
-      visit users_path
+      visit user_path
       expect(User.find_by(email: 'dyary2020@gmail.com').posts_counter).to eq 0
     end
   end
@@ -60,9 +60,9 @@ RSpec.describe 'User index page', type: :system do
     create_test_users
     it 'redirects to when clicked' do
       id = User.all[0].id
-      link = page.find_link("mustafa")
+      link = page.all("a")[0]
       link.click
-      expect(page).to have_current_path(user_path(id))
+      expect(page).to have_current_path(user_show_path(id))
     end
   end
 end
