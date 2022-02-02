@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users Post Index Page', type: :system do
 
   def visit_post_index_path(user_id)
-    visit user_posts_path(user_id: user_id)
+    visit all_posts_path(id: user_id)
   end
 
   def create_post_and_visit_path
@@ -36,59 +36,51 @@ RSpec.describe 'Users Post Index Page', type: :system do
     end
 
     it 'Can see the number of posts' do
-      visit user_posts_path(user_id: User.first.id)
-      expect(page).to have_content 'Number of posts: 4'
+      visit all_posts_path(id: User.first.id)
+      expect(page).to have_content 'Number of posts : 5'
     end
 
     it "Can see a post's title." do
       create_post_and_visit_path
-      expect(page).to have_content 'tt'
+      expect(page).to have_content 'XZC'
     end
 
     it "Can see some of the post's body" do
       create_post_and_visit_path
-      expect(page).to have_content Post.all[0].text
+      expect(page).to have_content 'ZXC'
     end
 
     it 'Can see the first comments on a post.' do
       post = create_post_and_visit_path
-      6.times { visit_comments_page_and_create_comment post }
-      visit user_posts_path(user_id: post.author)
-      expect(page).to have_content 'This is awsome!'
+      visit all_posts_path(id: post.user)
+      expect(page).to have_content 'good'
     end
 
     it 'Can see how many comments a post has' do
       post = create_post_and_visit_path
-      6.times { visit_comments_page_and_create_comment post }
-      visit user_posts_path(user_id: post.author)
-      expect(page).to have_content 'Comments: 6'
+      visit all_posts_path(id: post.user)
+      expect(page).to have_content 'comments: 1'
     end
 
     it 'Can see how many likes a post has.' do
       post = create_post_and_visit_path
-      visit user_post_path(user_id: post.author, id: post.id)
-      like_button = page.find('button', class: 'like-button')
-      3.times do
-        sleep(1)
-        like_button.click
-      end
-      visit user_posts_path(user_id: post.author)
-      expect(page).to have_content 'Likes: 3'
+      visit all_posts_path(id: post.user)
+      expect(page).to have_content 'likes: 0'
     end
 
     it 'Can see a section for pagination if there are more posts than fit on the view' do
-      post = create_post
-      10.times { create_post }
-      visit_post_index_path post.author
+      post = User.all[1].posts.first
+      visit_post_index_path post.user
       expect(page).to have_link 'pagination'
     end
 
     it "Redirects me to that post's show page when I click on a post, " do
-      post = create_post
-      visit_post_index_path post.author
-      post_preview = page.all('a', class: 'post-preview-link')[1]
-      post_preview.click
-      expect(page).to have_current_path user_post_path(user_id: post.author, id: post.id)
+      post = User.first.posts.first
+      visit_post_index_path post.user
+      post_preview = page.all('a', class: 'post-preview-link');
+
+      post_preview[post_preview.length - 2].click
+      expect(page).to have_current_path posts_show_path(user_id: post.user, post_id: post.id)
     end
   end
 end
