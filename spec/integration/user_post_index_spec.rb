@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Users Post Index Page', type: :system do
-
   def visit_post_index_path(user_id)
     visit all_posts_path(id: user_id)
   end
@@ -77,7 +76,7 @@ RSpec.describe 'Users Post Index Page', type: :system do
     it "Redirects me to that post's show page when I click on a post, " do
       post = User.first.posts.first
       visit_post_index_path post.user
-      post_preview = page.all('a', class: 'post-preview-link');
+      post_preview = page.all('a', class: 'post-preview-link')
 
       post_preview[post_preview.length - 2].click
       expect(page).to have_current_path posts_show_path(user_id: post.user, post_id: post.id)

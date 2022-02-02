@@ -45,7 +45,7 @@ RSpec.describe 'User index page', type: :system do
 
   describe 'can see the number of posts each user has written' do
     create_test_users
-    it 'can see that first users posts are 3' do    
+    it 'can see that first users posts are 3' do
       visit user_path
       expect(User.find_by(email: 'abbas@gmail.com').posts_counter).to eq 3
     end
@@ -60,7 +60,7 @@ RSpec.describe 'User index page', type: :system do
     create_test_users
     it 'redirects to when clicked' do
       id = User.all[0].id
-      link = page.all("a")[0]
+      link = page.all('a')[0]
       link.click
       expect(page).to have_current_path(user_show_path(id))
     end

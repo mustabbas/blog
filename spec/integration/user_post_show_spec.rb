@@ -8,7 +8,7 @@ RSpec.describe 'User', type: :system do
       fill_in 'password', with: '123456'
       click_button 'Log in'
       visit posts_show_path(user_id: User.first,
-                           post_id: User.first.posts.first)
+                            post_id: User.first.posts.first)
     end
     it "I can see the post's title." do
       expect(page).to have_content('XZC')
