@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe 'Login page', type: :system do
   describe 'login page' do
