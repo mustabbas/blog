@@ -1,4 +1,13 @@
 class CommentsController < ApplicationController
+
+  def index
+    @comments = Comment.where(post_id: params[:post_id])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @comments }
+    end
+  end
+
   def new
     @post = Post.find(params[:id])
     comment = Comment.new
