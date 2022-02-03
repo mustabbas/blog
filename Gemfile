@@ -49,7 +49,7 @@ gem 'bootsnap', require: false
 
 gem 'devise-jwt'
 
-gem "figaro"
+gem 'figaro'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
