@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+  controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations'
+  }
+  
   resources :widgets
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # root "users#index"
@@ -16,6 +21,8 @@ Rails.application.routes.draw do
   post '/users/:user_id/post/:id/comments/create', to: 'comments#create', as: "create_comment"
   delete '/users/:user_id/post/:post_id/comments/:id/destroy', to: 'comments#destroy', as: "destroy_comment"
   get '/users/:user_id/post/:id/likes', to: 'likes#create', as: "create_like"
+  get '/member-data', to: 'members#show'
+
   # Defines the root path route ("/")
   # root "articles#index"
 end
