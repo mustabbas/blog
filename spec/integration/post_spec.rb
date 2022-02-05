@@ -138,32 +138,34 @@ path '/users' do
     end
 end
 
-#   path '/users/:user_id/' do
+  path '/users/:id/posts' do
 
-#     get '' do
-#       tags 'Pets'
-#       produces 'application/json', 'application/xml'
-#       parameter name: :id, :in => :path, :type => :string
+    get 'Posts' do
+      tags 'Posts'
+      produces 'application/json', 'application/xml'
+      parameter id: :id, :in => :path, :type => :string
 
-#       response '200', 'name found' do
-#         schema type: :object,
-#           properties: {
-#             id: { type: :integer, },
-#             name: { type: :string },
-#             photo_url: { type: :string },
-#             status: { type: :string }
-#           },
-#           required: [ 'id', 'name', 'status' ]
+      response '200', 'posts found' do
+        schema type: :object,
+          properties: {
+            title: { type: :string },
+            text: { type: :string },
+            user_id: { type: :string },
+            comments_counter: { type: :string },
+            like_counter: { type: :string }
+          },
+          required: [ 'title', 'comments_counter', 'like_counter' ]
 
-#         let(:id) { Pet.create(name: 'foo', status: 'bar', photo_url: 'http://example.com/avatar.jpg').id }
-#         run_test!
-#       end
+        let(:id) { Post.create(title: 'foo', text: 'bar', user_id: '0', comments_couter: 0, like_counter: 0).id }
+        run_test!
+      end
 
-#       response '404', 'pet not found' do
-#         let(:id) { 'invalid' }
-#         run_test!
-#       end
-#     end
-#   end
+      response '404', 'pet not found' do
+        let(:id) { 'invalid' }
+        run_test!
+      end
+    end
+  end
+
 end
 end
