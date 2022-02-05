@@ -1,0 +1,142 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/users/:user_id/posts/:id":
+    post:
+      summary: Creates a post
+      tags:
+      - Posts
+      parameters: []
+      responses:
+        '201':
+          description: Post created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+                user_id:
+                  type: string
+                comments_counter:
+                  type: string
+                like_counter:
+                  type: string
+              required:
+              - title
+              - comments_counter
+              - like_counter
+          application/xml:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+                user_id:
+                  type: string
+                comments_counter:
+                  type: string
+                like_counter:
+                  type: string
+              required:
+              - title
+              - comments_counter
+              - like_counter
+  "/users/:user_id/posts/:post_id/comments/new":
+    post:
+      summary: Creates a comment
+      tags:
+      - Posts
+      parameters: []
+      responses:
+        '201':
+          description: Post created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                user_id:
+                  type: string
+                post_id:
+                  type: string
+          application/xml:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                user_id:
+                  type: string
+                post_id:
+                  type: string
+  "/users":
+    post:
+      summary: Login
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: Post created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+          application/xml:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+    delete:
+      summary: Login
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: Post created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
