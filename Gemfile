@@ -51,6 +51,8 @@ gem 'devise-jwt'
 
 gem 'figaro'
 
+gem 'rswag', git: 'https://github.com/rswag/rswag.git', branch: '2.5.0.rc1'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

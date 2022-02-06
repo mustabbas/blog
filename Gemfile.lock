@@ -1,3 +1,22 @@
+GIT
+  remote: https://github.com/rswag/rswag.git
+  revision: b971f299c12f87cd2ca579d7c95d1ce942b767cc
+  branch: 2.5.0.rc1
+  specs:
+    rswag (0.0.0)
+      rswag-api (= 0.0.0)
+      rswag-specs (= 0.0.0)
+      rswag-ui (= 0.0.0)
+    rswag-api (0.0.0)
+      railties (>= 3.1, < 7.1)
+    rswag-specs (0.0.0)
+      activesupport (>= 3.1, < 7.1)
+      json-schema (~> 2.2)
+      railties (>= 3.1, < 7.1)
+    rswag-ui (0.0.0)
+      actionpack (>= 3.1, < 7.1)
+      railties (>= 3.1, < 7.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -128,6 +147,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
     jwt (2.3.0)
     loofah (2.13.0)
       crass (~> 1.0.2)
@@ -302,6 +323,7 @@ DEPENDENCIES
   rails (~> 7.0.1)
   rails-controller-testing
   rspec-rails
+  rswag!
   rubocop (>= 1.0, < 2.0)
   selenium-webdriver
   sprockets-rails
